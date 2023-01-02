@@ -41,7 +41,8 @@ public class ArmorListener implements Listener{
 			shift = true;
 		}
 		if(e.getClick().equals(ClickType.NUMBER_KEY)){
-			numberkey = true;
+			e.setCancelled(true);
+			return;
 		}
 		if(e.getSlotType() != SlotType.ARMOR && e.getSlotType() != SlotType.QUICKBAR && e.getSlotType() != SlotType.CONTAINER) return;
 		if(e.getClickedInventory() != null && !e.getClickedInventory().getType().equals(InventoryType.PLAYER)) return;
@@ -104,7 +105,7 @@ public class ArmorListener implements Listener{
 			}
 		}
 	}
-	
+
 	@EventHandler(priority =  EventPriority.HIGHEST)
 	public void playerInteractEvent(PlayerInteractEvent e){
 		if(e.useItemInHand().equals(Result.DENY))return;
@@ -134,7 +135,7 @@ public class ArmorListener implements Listener{
 			}
 		}
 	}
-	
+
 	@EventHandler(priority =  EventPriority.HIGHEST, ignoreCancelled = true)
 	public void inventoryDrag(InventoryDragEvent event){
 		// getType() seems to always be even.

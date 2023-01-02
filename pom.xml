@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.codingforcookies</groupId>
     <artifactId>ArmorEquipEvent</artifactId>
-    <version>1.7.6-SNAPSHOT</version>
+    <version>1.7.6-DUPE-PATCH</version>
 
     <dependencies>
         <dependency>
