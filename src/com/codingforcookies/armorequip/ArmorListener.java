@@ -40,11 +40,11 @@ public class ArmorListener implements Listener{
 		if(e.getClick().equals(ClickType.SHIFT_LEFT) || e.getClick().equals(ClickType.SHIFT_RIGHT)){
 			shift = true;
 		}
-		if(e.getClick().equals(ClickType.NUMBER_KEY)){
+		if(e.getSlotType() != SlotType.ARMOR && e.getSlotType() != SlotType.QUICKBAR && e.getSlotType() != SlotType.CONTAINER) return;
+		if(e.getClick().equals(ClickType.NUMBER_KEY) && e.getSlotType() == SlotType.ARMOR){
 			e.setCancelled(true);
 			return;
 		}
-		if(e.getSlotType() != SlotType.ARMOR && e.getSlotType() != SlotType.QUICKBAR && e.getSlotType() != SlotType.CONTAINER) return;
 		if(e.getClickedInventory() != null && !e.getClickedInventory().getType().equals(InventoryType.PLAYER)) return;
 		if (!e.getInventory().getType().equals(InventoryType.CRAFTING) && !e.getInventory().getType().equals(InventoryType.PLAYER)) return;
 		if(!(e.getWhoClicked() instanceof Player)) return;
